@@ -1,0 +1,17 @@
+let quote=document.getElementById("qoute");
+let author=document.getElementById("author");
+let btn =document.getElementById("btn");
+
+const url="https://api.quotable.io/random";
+let getQoute=()=>{
+    fetch(url).then((data)=>data.json())
+    .then((item)=>{
+        console.log(item.content);
+        console.log(item.author);
+        quote.innerHTML=item.content;
+        author.innerHTML=item.author;
+
+    });
+}
+window.addEventListener("load",getQoute);
+btn.addEventListener("click",getQoute);
